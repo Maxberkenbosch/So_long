@@ -3,9 +3,7 @@
 int	main(int argc, char *argv[])
 {
 	t_tool	tool;
-	int	i;
 
-	i = 0;
 	tool.moves = 0;
 	if (argc != 2)
 		exit_game(tool, "You entered the wrong amount of arguments", 0);
