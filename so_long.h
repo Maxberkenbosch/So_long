@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c, int *words, t_tool tool);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 //join
-char	*ft_strjoin(char const *s1, char const *s2, t_tool tool);
+char	*ft_strjoin(char *s1, char const *s2, t_tool tool);
 
 //calloc
 void	*ft_calloc(size_t count, size_t size, t_tool tool);
@@ -97,5 +97,8 @@ t_tool	exit_strategy2(int code, t_tool tool);
 
 //exit
 void	exit_game(t_tool tool, char *str, int release);
+
+//check_argv
+void	check_argv(char *argv[], t_tool tool);
 
 #endif

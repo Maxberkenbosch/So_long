@@ -16,14 +16,14 @@ t_tool	map_checker(t_tool tool)
 			if (tool.map[i][j] != '1' && tool.map[i][j] != '0' &&
 			tool.map[i][j] != 'C' && tool.map[i][j] != 'P' &&
 			tool.map[i][j] != 'E')
-				exit_game(tool, "There is a false character in your map", 1);
+				exit_game(tool, "Error, the map is invalid", 1);
 			j++;
 		}
 		i++;
 	}
 	if (tool.c_count < 1 || tool.e_count < 1 || tool.p_count != 1)
 		exit_game(tool, \
-		"Error, map contains the wrong amount characters", 1);
+		"Error, the map is invalid", 1);
 	border_checker(tool);
 	return (tool);
 }
@@ -42,10 +42,10 @@ void	border_checker(t_tool tool)
 		{
 			if ((i == 0 || i == tool.window_height - 1)
 				&& tool.map[i][j] != '1')
-				exit_game(tool, "The border is not complete", 1);
+				exit_game(tool, "Error, the map is invalid", 1);
 			else if (tool.map[i][0] != '1' ||
 					tool.map[i][tool.window_width - 1] != '1')
-				exit_game(tool, "Error, the border is not complete", 1);
+				exit_game(tool, "Error, the map is invalid", 1);
 			j++;
 		}
 		i++;
@@ -73,10 +73,10 @@ void	check_rectangular(t_tool tool)
 	{
 		if ((int)ft_strlen(tool.map[i]) != tool.window_width && \
 			i != tool.window_height - 1)
-			exit_game(tool, "Error, the map isn't a rectangle", 1);
+			exit_game(tool, "Error, the map is invalid", 1);
 		else if (((int)ft_strlen(tool.map[i]) - 1) != tool.window_width && \
 			i == tool.window_height - 1)
-			exit_game(tool, "Error, the map isn't a rectangle", 1);
+			exit_game(tool, "Error, the map is invalid", 1);
 		i++;
 	}
 }

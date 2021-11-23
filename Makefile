@@ -9,7 +9,8 @@ FILES =	main.c\
 		exit_strategy.c\
 		exit_game.c\
 		change_map_checker.c\
-		map_checker.c
+		map_checker.c\
+		check_argv.c
 
 OBJS = $(FILES:.c=.o)
 

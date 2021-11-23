@@ -28,7 +28,7 @@ static void	*ft_memmove(void *dst, void *src, size_t len, t_tool tool)
 	return ((void *)dst1);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2, t_tool tool)
+char	*ft_strjoin(char *s1, char const *s2, t_tool tool)
 {
 	char	*str;
 	int		l1;
@@ -44,5 +44,7 @@ char	*ft_strjoin(char const *s1, char const *s2, t_tool tool)
 	ft_memmove(str, (char *)s1, l1, tool);
 	ft_memmove(str + l1, (char *)s2, l2, tool);
 	str[l1 + l2] = '\0';
+	if (s1)
+		free(s1);
 	return (str);
 }
