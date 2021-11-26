@@ -1,4 +1,7 @@
 #include "so_long.h"
+#include <fcntl.h>
+#include <unistd.h>
+#include "./mlx/mlx.h"
 
 t_tool	read_map(t_tool tool, char *text)
 {

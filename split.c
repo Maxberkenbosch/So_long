@@ -2,28 +2,28 @@
 
 static int	ft_word_counter(char const *s, char c);
 
-static int	ft_alloc(char **Array, char *s, int a, char c);
+static int	ft_alloc(char **array, char *s, int a, char c);
 
-static void	ft_free(char **Array, int a);
+static void	ft_free(char **array, int a);
 
 char	**ft_split(char const *s, char c, int *words, t_tool tool)
 {
-	char	**Array;
+	char	**array;
 	int		a;
 
 	if (!s)
 		return (0);
-	Array = malloc ((ft_word_counter(s, c) + 1) * sizeof(char *));
-	if (!Array)
+	array = malloc ((ft_word_counter(s, c) + 1) * sizeof(char *));
+	if (!array)
 		exit_game(tool, "A malloc error in ft_split occured", 1);
 	a = 0;
-	a = ft_alloc(Array, (char *)s, a, c);
-	Array[a] = NULL;
+	a = ft_alloc(array, (char *)s, a, c);
+	array[a] = NULL;
 	*words = a;
-	return (Array);
+	return (array);
 }
 
-static int	ft_alloc(char **Array, char *s, int a, char c)
+static int	ft_alloc(char **array, char *s, int a, char c)
 {
 	size_t	len;
 	int		i;
@@ -40,9 +40,9 @@ static int	ft_alloc(char **Array, char *s, int a, char c)
 		{
 			while (s[i + len] != c && s[i + len])
 				len++;
-			Array[a] = ft_substr(s, i, len);
-			if (!Array[a])
-				ft_free(Array, a);
+			array[a] = ft_substr(s, i, len);
+			if (!array[a])
+				ft_free(array, a);
 			i += len;
 			a++;
 		}
@@ -77,14 +77,14 @@ static int	ft_word_counter(char const *s, char c)
 	return (counter);
 }
 
-static void	ft_free(char **Array, int a)
+static void	ft_free(char **array, int a)
 {
 	while (a > 0)
 	{
-		free(Array[a]);
+		free(array[a]);
 		a--;
 	}
-	free(Array);
+	free(array);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

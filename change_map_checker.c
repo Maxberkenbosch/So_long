@@ -1,4 +1,5 @@
 #include "so_long.h"
+#include <stdio.h>
 
 t_tool	change_map_checker1(int code, t_tool tool)
 {

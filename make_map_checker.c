@@ -1,4 +1,5 @@
 #include "so_long.h"
+#include "./mlx/mlx.h"
 
 t_tool	make_map_checker(t_tool tool)
 {

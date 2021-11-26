@@ -1,4 +1,6 @@
 #include "so_long.h"
+#include "./mlx/mlx.h"
+#include <stdio.h>
 
 void	exit_game(t_tool tool, char *str, int release)
 {
@@ -6,7 +8,7 @@ void	exit_game(t_tool tool, char *str, int release)
 
 	i = 0;
 	printf("%s\n", str);
-	if (release == 1 || release == 2)
+	if (release == 1)
 	{
 		while (i < tool.window_height)
 		{
@@ -15,7 +17,5 @@ void	exit_game(t_tool tool, char *str, int release)
 		}
 		free(tool.map);
 	}
-	if (release == 2)
-		mlx_destroy_window(tool.mlx, tool.win);
 	exit (0);
 }
